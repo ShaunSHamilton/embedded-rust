@@ -1,0 +1,19 @@
+[package]
+name = "embedded-rust"
+version = "0.1.0"
+authors = ["Shaun Hamilton <shauhami020@gmail.com>"]
+edition = "2021"
+include = ["src/**/*", "Cargo.toml"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "morse-coder"
+path = "./morse-coder/src/main.rs"
+
+[workspace]
+members = ["morse-coder"]
+
+[dependencies]
+rust_gpiozero = "0.2.1"
+tokio = { version = "1.19.2", features = ["rt", "time", "macros"] }
