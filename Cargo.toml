@@ -22,6 +22,6 @@ panic = "abort"
 panic = "abort"
 
 [workspace]
-members = ["morse-coder", "hello-world"]
+members = ["hello-world"]
 
 [dependencies]
