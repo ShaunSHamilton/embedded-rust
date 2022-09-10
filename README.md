@@ -8,31 +8,21 @@
 
 ## The Short of It
 
-### One-Time Setup
-
-Install target:
+### Build Bootable Image
 
 ```bash
-rustup add target arm-unknown-linux-gnueabihf
-git clone https://github.com/raspberrypi/tools $HOME/rpi_tools
-sudo nano ~/.cargo/config
+make p=<PROJECT> # e.g. make p=hello-world
 ```
 
-Configure linker:
+### Load Boot on Raspberry Pi
 
-```conf
-[target.arm-unknown-linux-gnueabihf]
-linker = "/rpi_tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc"
-```
-
-### Cross Compile for Raspberry Pi
-
-```bash
-cargo build --release -p <crate_name> --target=arm-unknown-linux-gnueabihf
-scp target/arm-unknown-linux-gnueabihf/release/<crate_name> pi@192.168.1.199:~/<crate_name>
-```
+Copy all files made within the `<PROJECT>/boot` directory to the root of an SD card. Then, insert the SD card into the Raspberry Pi and power it on.
 
 ## Project Ideas
+
+### Hello World
+
+Blink an LED on and off.
 
 ### Morse Coder
 

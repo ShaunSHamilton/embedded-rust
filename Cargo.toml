@@ -11,9 +11,17 @@ include = ["src/**/*", "Cargo.toml"]
 name = "morse-coder"
 path = "./morse-coder/src/main.rs"
 
+[[bin]]
+name = "hello-world"
+path = "./hello-world/src/main.rs"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+
 [workspace]
-members = ["morse-coder"]
+members = ["morse-coder", "hello-world"]
 
 [dependencies]
-rust_gpiozero = "0.2.1"
-tokio = { version = "1.19.2", features = ["rt", "time", "macros"] }

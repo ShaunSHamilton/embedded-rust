@@ -5,10 +5,10 @@ version = 3
 [[package]]
 name = "embedded-rust"
 version = "0.1.0"
-dependencies = [
- "rust_gpiozero",
- "tokio",
-]
+
+[[package]]
+name = "hello-world"
+version = "0.1.0"
 
 [[package]]
 name = "lazy_static"
