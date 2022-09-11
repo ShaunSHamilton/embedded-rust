@@ -2,15 +2,15 @@
 #![no_main]
 #![allow(unused_assignments)]
 
-const GPIO_FSEL0: u32 = 0x3F20_0000;
-const GPIO_FSEL1: u32 = 0x3F20_0004;
-const GPIO_FSEL2: u32 = 0x3F20_0008;
+const GPIO_FSEL0: u32 = 0x2020_0000;
+const GPIO_FSEL1: u32 = 0x2020_0004;
+const GPIO_FSEL2: u32 = 0x2020_0008;
 
-const GPIO_SET0: u32 = 0x3F20_001C;
-const GPIO_CLR0: u32 = 0x3F20_0028;
+const GPIO_SET0: u32 = 0x2020_001C;
+const GPIO_CLR0: u32 = 0x2020_0028;
 
-use core::panic::PanicInfo;
 use core::arch::asm;
+use core::panic::PanicInfo;
 
 mod boot {
     use core::arch::global_asm;
@@ -83,9 +83,9 @@ pub extern "C" fn _start() -> ! {
                 asm!("nop");
             }
         }
-        
+
         GPIO::clear(21);
-        
+
         for _ in 1..50000 {
             unsafe {
                 asm!("nop");
